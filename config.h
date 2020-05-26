@@ -81,7 +81,9 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_recency", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+//static const char *dmenucmd[] = { "rofi", "-show drun -config $HOME/.config/rofi/themes/default.rasi",  NULL };
+//static const char *dmenucmd[] = { "rofi -show drun",  NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[]  = { "google-chrome-stable", NULL };
 
@@ -103,7 +105,7 @@ static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 
 static Key keys[] = {
 	/* modifier            key                      function        argument */
-	{ MODKEY,              XK_s,                    spawn,          {.v = dmenucmd } },
+	{ MODKEY,              XK_d,                    spawn,          {.v = dmenucmd } },
 	{ MODKEY,              XK_Return,               spawn,          {.v = termcmd } },
 	{ MODKEY,              XK_c,                    spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,    XK_w,                    spawn,          {.v = setqwertycmd } },
@@ -118,27 +120,27 @@ static Key keys[] = {
 	{ MODKEY,              XK_bracketright,         spawn,          {.v = upvol   } },
 	{ MODKEY,              XK_b,                    spawn,          {.v = wpcmd } },
 	{ 0,                   XK_Print,                spawn,          {.v = screenshotcmd } },
-	{ MODKEY|ShiftMask,    XK_e,                    rotatestack,    {.i = +1 } },
-	{ MODKEY|ShiftMask,    XK_u,                    rotatestack,    {.i = -1 } },
-	{ MODKEY,              XK_e,                    focusstack,     {.i = +1 } },
-	{ MODKEY,              XK_u,                    focusstack,     {.i = -1 } },
-	{ MODKEY,              XK_n,                    viewtoleft,     {0} },
-	{ MODKEY,              XK_i,                    viewtoright,    {0} },
-	{ MODKEY|ShiftMask,    XK_n,                    tagtoleft,      {0} },
-	{ MODKEY|ShiftMask,    XK_i,                    tagtoright,     {0} },
-	{ MODKEY|ShiftMask,    XK_h,                    incnmaster,     {.i = +1 } },
-	{ MODKEY|ShiftMask,    XK_l,                    incnmaster,     {.i = -1 } },
-	{ MODKEY,              XK_h,                    setmfact,       {.f = -0.05} },
-	{ MODKEY,              XK_l,                    setmfact,       {.f = +0.05} },
-	{ MODKEY,              XK_k,                    hidewin,        {0} },
-	{ MODKEY|ShiftMask,    XK_k,                    restorewin,     {0} },
+	{ MODKEY|ShiftMask,    XK_k,                    rotatestack,    {.i = +1 } },
+	{ MODKEY|ShiftMask,    XK_j,                    rotatestack,    {.i = -1 } },
+	{ MODKEY,              XK_k,                    focusstack,     {.i = +1 } },
+	{ MODKEY,              XK_j,                    focusstack,     {.i = -1 } },
+	{ MODKEY,              XK_h,                    viewtoleft,     {0} },
+	{ MODKEY,              XK_l,                    viewtoright,    {0} },
+	{ MODKEY|ShiftMask,    XK_h,                    tagtoleft,      {0} },
+	{ MODKEY|ShiftMask,    XK_l,                    tagtoright,     {0} },
+	//{ MODKEY|ShiftMask,    XK_h,                    incnmaster,     {.i = +1 } },
+	//{ MODKEY|ShiftMask,    XK_l,                    incnmaster,     {.i = -1 } },
+	{ MODKEY|ControlMask,  XK_h,                    setmfact,       {.f = -0.05} },
+	{ MODKEY|ControlMask,  XK_l,                    setmfact,       {.f = +0.05} },
+	{ MODKEY,              XK_i,                    hidewin,        {0} },
+	{ MODKEY|ShiftMask,    XK_i,                    restorewin,     {0} },
 	{ MODKEY,              XK_o,                    hideotherwins,  {0}},
 	{ MODKEY|ShiftMask,    XK_o,                    restoreotherwins, {0}},
 	{ MODKEY|ShiftMask,    XK_Return,               zoom,           {0} },
-	{ MODKEY,              XK_Tab,                  view,           {0} },
+	{ MODKEY,              XK_b,                  	view,           {0} },
 	{ MODKEY|ShiftMask,    XK_q,                    killclient,     {0} },
-	{ MODKEY,              XK_t,                    setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,              XK_m,                    setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,              XK_e,                    setlayout,      {.v = &layouts[0]} },
+	{ MODKEY,              XK_w,                    setlayout,      {.v = &layouts[2]} },
 	{ MODKEY|ShiftMask,    XK_f,                    fullscreen,     {0} },
 	{ MODKEY,              XK_space,                setlayout,      {0} },
 	{ MODKEY|ShiftMask,    XK_space,                togglefloating, {0} },

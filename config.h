@@ -100,6 +100,7 @@ static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80x24"
 static const char *setcolemakcmd[]  = { "/home/microsweet/scripts/setxmodmap-colemak.sh", NULL };
 static const char *setqwertycmd[]  = { "/home/microsweet/scripts/setxmodmap-qwerty.sh", NULL };
 
+static const char *powermenucmd[] = { "/home/microsweet/.config/rofi/scripts/Powermenu.sh", NULL };
 static const char *suspendcmd[]  = { "/home/microsweet/scripts/suspend.sh", NULL };
 
 static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
@@ -111,7 +112,8 @@ static Key keys[] = {
 	{ MODKEY,              XK_c,                    spawn,          {.v = browsercmd } },
 	//{ MODKEY|ShiftMask,    XK_w,                    spawn,          {.v = setqwertycmd } },
 	//{ MODKEY|ShiftMask,    XK_m,                    spawn,          {.v = setcolemakcmd } },
-	{ MODKEY|ShiftMask,    XK_p,                    spawn,          {.v = suspendcmd } },
+	//{ MODKEY|ShiftMask,    XK_p,                    spawn,          {.v = suspendcmd } },
+	{ MODKEY,	       XK_y,                    spawn,          {.v = powermenucmd } },
 	{ MODKEY|ControlMask,  XK_s,                    spawn,          {.v = sktogglecmd } },
 	{ 0,                   XF86XK_AudioLowerVolume, spawn,          {.v = downvol } },
 	{ 0,                   XF86XK_AudioMute,        spawn,          {.v = mutevol } },

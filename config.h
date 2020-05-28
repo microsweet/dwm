@@ -101,8 +101,8 @@ static const char *sktogglecmd[]  = { "/home/microsweet/scripts/sck-tog.sh", NUL
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80x24", NULL };
 
-static const char *setcolemakcmd[]  = { "/home/microsweet/scripts/setxmodmap-colemak.sh", NULL };
-static const char *setqwertycmd[]  = { "/home/microsweet/scripts/setxmodmap-qwerty.sh", NULL };
+//static const char *setcolemakcmd[]  = { "/home/microsweet/scripts/setxmodmap-colemak.sh", NULL };
+//static const char *setqwertycmd[]  = { "/home/microsweet/scripts/setxmodmap-qwerty.sh", NULL };
 
 static const char *powermenucmd[] = { "/home/microsweet/.config/rofi/scripts/Powermenu.sh", NULL };
 static const char *suspendcmd[]  = { "/home/microsweet/scripts/suspend.sh", NULL };

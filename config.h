@@ -88,9 +88,12 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[]  = { "google-chrome-stable", NULL };
 
-static const char *upvol[]   = { "/home/microsweet/scripts/vol-up.sh",  NULL };
-static const char *downvol[] = { "/home/microsweet/scripts/vol-down.sh",  NULL };
-static const char *mutevol[] = { "/home/microsweet/scripts/vol-toggle.sh",  NULL };
+//static const char *upvol[]   = { "/home/microsweet/scripts/vol-up.sh",  NULL };
+//static const char *downvol[] = { "/home/microsweet/scripts/vol-down.sh",  NULL };
+//static const char *mutevol[] = { "/home/microsweet/scripts/vol-toggle.sh",  NULL };
+static const char *upvol[]   = { "pamixer", "-i", "5",  NULL };
+static const char *downvol[] = { "pamixer", "-d", "5",  NULL };
+static const char *mutevol[] = { "pamixer", "-t",  NULL };
 
 static const char *wpcmd[]  = { "/home/microsweet/scripts/wp-change.sh", NULL };
 static const char *sktogglecmd[]  = { "/home/microsweet/scripts/sck-tog.sh", NULL };

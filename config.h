@@ -159,6 +159,7 @@ static Key keys[] = {
 	{ MODKEY,              XK_period,               focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,    XK_comma,                tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,    XK_period,               tagmon,         {.i = +1 } },
+	{ MODKEY,    	       XK_9,               	spawn,         	SHCMD("i3lock -i ~/.config/i3/Pictures/lock.png") },
 	TAGKEYS(               XK_1,                      0)
 	TAGKEYS(               XK_2,                      1)
 	TAGKEYS(               XK_3,                      2)
@@ -167,7 +168,7 @@ static Key keys[] = {
 	TAGKEYS(               XK_6,                      5)
 	TAGKEYS(               XK_7,                      6)
 	TAGKEYS(               XK_8,                      7)
-	TAGKEYS(               XK_9,                      8)
+	//TAGKEYS(               XK_9,                      8)
 	{ MODKEY|ControlMask,  XK_q,      quit,           {0} },
 };
 

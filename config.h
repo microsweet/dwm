@@ -59,6 +59,7 @@ static const Rule rules[] = {
 	{ "quemu-system-i386", 	NULL,       NULL,       0,            1,           -1 },
 	{ "firefox",  		NULL,       NULL,       1 << 1,       0,           -1 },
 	{ "Google-chrome",  	NULL,       NULL,       2,            0,            0},
+	{ "Eclipse",  		NULL,       NULL,       1 << 2,       0,            0},
 };
 
 /* layout(s) */

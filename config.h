@@ -57,7 +57,7 @@ static const Rule rules[] = {
 	{ "Android Emulator", 	NULL,       NULL,       0,            1,           -1 },
 	{ "Emulator", 		NULL,       NULL,       0,            1,           -1 },
 	{ "quemu-system-i386", 	NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  		NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "firefox",  		NULL,       NULL,       1 << 1,       0,           -1 },
 	{ "Google-chrome",  	NULL,       NULL,       2,            0,            0},
 };
 
@@ -90,7 +90,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 //static const char *dmenucmd[] = { "rofi", "-show drun -config $HOME/.config/rofi/themes/default.rasi",  NULL };
 //static const char *dmenucmd[] = { "rofi -show drun",  NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *browsercmd[]  = { "google-chrome-stable", NULL };
+static const char *browsercmd[]  = { "firefox", NULL };
 
 //static const char *upvol[]   = { "/home/microsweet/scripts/vol-up.sh",  NULL };
 //static const char *downvol[] = { "/home/microsweet/scripts/vol-down.sh",  NULL };

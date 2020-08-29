@@ -123,6 +123,8 @@ static Key keys[] = {
 	{ 0,                   XF86XK_AudioLowerVolume, spawn,          {.v = downvol } },
 	{ 0,                   XF86XK_AudioMute,        spawn,          {.v = mutevol } },
 	{ 0,                   XF86XK_AudioRaiseVolume, spawn,          {.v = upvol   } },
+	{ 0,                   XF86XK_MonBrightnessDown,  spawn,          SHCMD("/home/microsweet/.Scripts/DSbacklight.sh down") },
+	{ 0,                   XF86XK_MonBrightnessUp,    spawn,          SHCMD("/home/microsweet/.Scripts/DSbacklight.sh up") },
 	{ MODKEY,              XK_minus,          	spawn,          {.v = downvol } },
 	{ MODKEY,              XK_backslash,            spawn,          {.v = mutevol } },
 	{ MODKEY,              XK_equal,         	spawn,          {.v = upvol   } },

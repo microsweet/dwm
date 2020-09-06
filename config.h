@@ -164,6 +164,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,    XK_comma,                tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,    XK_period,               tagmon,         {.i = +1 } },
 	{ MODKEY,    	       XK_9,               	spawn,         	SHCMD("i3lock -i ~/.config/i3/Pictures/lock.png") },
+	{ MODKEY,    	       XK_n,               	spawn,         	SHCMD("~/scripts/notify.sh") },
 	TAGKEYS(               XK_1,                      0)
 	TAGKEYS(               XK_2,                      1)
 	TAGKEYS(               XK_3,                      2)

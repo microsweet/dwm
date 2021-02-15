@@ -123,7 +123,7 @@ static Key keys[] = {
 	//{ MODKEY|ShiftMask,    XK_w,                    spawn,          {.v = setqwertycmd } },
 	//{ MODKEY|ShiftMask,    XK_m,                    spawn,          {.v = setcolemakcmd } },
 	//{ MODKEY|ShiftMask,    XK_p,                    spawn,          {.v = suspendcmd } },
-	{ MODKEY,	       XK_y,                    spawn,          {.v = powermenucmd } },
+	{ MODKEY,	           XK_y,                    spawn,          {.v = powermenucmd } },
 	{ MODKEY|ControlMask,  XK_s,                    spawn,          {.v = sktogglecmd } },
 	{ 0,                   XF86XK_AudioLowerVolume, spawn,          {.v = downvol } },
 	{ 0,                   XF86XK_AudioMute,        spawn,          {.v = mutevol } },
@@ -166,8 +166,8 @@ static Key keys[] = {
 	{ MODKEY,              XK_period,               focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,    XK_comma,                tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,    XK_period,               tagmon,         {.i = +1 } },
-	{ MODKEY,    	       XK_9,               	spawn,         	SHCMD("i3lock -i ~/.config/i3/Pictures/lock.png") },
-	{ MODKEY,    	       XK_n,               	spawn,         	SHCMD("~/scripts/notify.sh") },
+	{ MODKEY,    	       XK_9,               	    spawn,         	SHCMD("i3lock -i ~/.config/lock.png") },
+	{ MODKEY,    	       XK_n,               	    spawn,         	SHCMD("~/scripts/notify.sh") },
 	TAGKEYS(               XK_1,                      0)
 	TAGKEYS(               XK_2,                      1)
 	TAGKEYS(               XK_3,                      2)

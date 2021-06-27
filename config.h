@@ -61,6 +61,7 @@ static const Rule rules[] = {
 	//{ "Google-chrome",  	NULL,       NULL,       2,            0,            0},
 	{ "Eclipse",  		NULL,       NULL,       1 << 2,       0,            0},
 	{ "thunder",  		NULL,       NULL,       0,            1,            0},
+	{ "org.remmina.Remmina",  		NULL,       NULL,       1 << 2,            1,            0},
 };
 
 /* layout(s) */

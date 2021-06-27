@@ -5,6 +5,7 @@
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const int rmaster            = 1;        /* 1 means master-area is initially on the right */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
@@ -116,6 +117,7 @@ static const char *suspendcmd[]  = { "/home/microsweet/scripts/suspend.sh", NULL
 static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 
 static Key keys[] = {
+    { MODKEY,              XK_r,      togglermaster,  {0} },
 	/* modifier            key                      function        argument */
 	//{ MODKEY,              XK_d,                    spawn,          {.v = dmenucmd } },
 	{ MODKEY,              XK_d,                    spawn,          SHCMD("rofi -show drun ~/.config/rofi/themes/default.rasi") },

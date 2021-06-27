@@ -150,6 +150,7 @@ struct Monitor {
 	unsigned int seltags;
 	unsigned int sellt;
 	unsigned int tagset[2];
+    int rmaster;
 	int showbar;
 	int topbar;
 	Client *clients;
@@ -262,6 +263,7 @@ static void tile(Monitor *);
 static void togglebar(const Arg *arg);
 static void togglefloating(const Arg *arg);
 static void togglescratch(const Arg *arg);
+static void togglermaster(const Arg *arg);
 static void toggletag(const Arg *arg);
 static void toggleview(const Arg *arg);
 static void togglewin(const Arg *arg);
@@ -794,6 +796,7 @@ createmon(void)
 	m->tagset[0] = m->tagset[1] = 1;
 	m->mfact = mfact;
 	m->nmaster = nmaster;
+	m->rmaster = rmaster;
 	m->showbar = showbar;
 	m->topbar = topbar;
 	m->gappih = gappih;
@@ -2137,19 +2140,25 @@ tile(Monitor *m)
 	}
 
 	if (n > m->nmaster)
-		mw = m->nmaster ? (m->ww + m->gappiv*ie) * m->mfact : 0;
+   		mw = m->nmaster
+			? m->ww * (m->rmaster ? 1.0 - m->mfact : m->mfact)
+			: 0;
+
 	else
 		mw = m->ww - 2*m->gappov*oe + m->gappiv*ie;
 	for (i = 0, my = ty = m->gappoh*oe, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++)
 		if (i < m->nmaster) {
 			r = MIN(n, m->nmaster) - i;
 			h = (m->wh - my - m->gappoh*oe - m->gappih*ie * (r - 1)) / r;
-			resize(c, m->wx + m->gappov*oe, m->wy + my, mw - (2*c->bw) - m->gappiv*ie, h - (2*c->bw), 0);
+            resize(c, m->rmaster ? m->wx + m->ww - mw : m->wx,
+                m->wy + my, mw - (2*c->bw), h - (2*c->bw), 0);
 			my += HEIGHT(c) + m->gappih*ie;
 		} else {
 			r = n - i;
 			h = (m->wh - ty - m->gappoh*oe - m->gappih*ie * (r - 1)) / r;
-			resize(c, m->wx + mw + m->gappov*oe, m->wy + ty, m->ww - mw - (2*c->bw) - 2*m->gappov*oe, h - (2*c->bw), 0);
+            resize(c, m->rmaster ? m->wx : m->wx + mw, m->wy + ty,
+                m->ww - mw - (2*c->bw), h - (2*c->bw), 0);
+
 			ty += HEIGHT(c) + m->gappih*ie;
 		}
 }
@@ -2209,6 +2218,17 @@ togglescratch(const Arg *arg)
 	} else
 		spawn(arg);
 }
+
+void
+togglermaster(const Arg *arg)
+{
+	selmon->rmaster = !selmon->rmaster;
+	/* now mfact represents the left factor */
+	selmon->mfact = 1.0 - selmon->mfact;
+	if (selmon->lt[selmon->sellt]->arrange)
+		arrange(selmon);
+}
+
 
 void
 toggletag(const Arg *arg)
